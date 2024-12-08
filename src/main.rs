@@ -57,26 +57,30 @@ fn main() {
             ItemType::TextFile => {
                 print!("[text] ");
                 print!("{}", main_item[0]);
-                println!(
-                    " [access \"{}:{}{}\" for this item]",
-                    main_item[2], main_item[3], main_item[1]
-                )
+                if main_item[3] == "70" {
+                    println!(" [access \"{}{}\"]", main_item[2], main_item[1])
+                } else {
+                    println!(
+                        " [access \"{}:{}{}\"]",
+                        main_item[2], main_item[3], main_item[1]
+                    )
+                }
             }
             ItemType::Directory => {
                 print!("[dir] ");
                 print!("{}", main_item[0]);
-                println!(
-                    " [access \"{}:{}{}\" for this item]",
-                    main_item[2], main_item[3], main_item[1]
-                )
+                if main_item[3] == "70" {
+                    println!(" [access \"{}{}\"]", main_item[2], main_item[1])
+                } else {
+                    println!(
+                        " [access \"{}:{}{}\"]",
+                        main_item[2], main_item[3], main_item[1]
+                    )
+                }
             }
             ItemType::Error => {
                 print!("[error] ");
                 println!("{}", main_item[0]);
-                //println!(
-                //    " [access \"{}:{}/{}\" for this item]",
-                //    main_item[2], main_item[3], main_item[1]
-                //)
             }
             ItemType::Binary => unreachable!(),
             ItemType::Information => {
@@ -85,10 +89,14 @@ fn main() {
             ItemType::Redundant => {
                 print!("[also] ");
                 print!("{}", main_item[0]);
-                println!(
-                    " [access \"{}:{}{}\" for this item]",
-                    main_item[2], main_item[3], main_item[1]
-                )
+                if main_item[3] == "70" {
+                    println!(" [access \"{}{}\"]", main_item[2], main_item[1])
+                } else {
+                    println!(
+                        " [access \"{}:{}{}\"]",
+                        main_item[2], main_item[3], main_item[1]
+                    )
+                }
             }
         }
     }
