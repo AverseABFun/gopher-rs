@@ -19,7 +19,7 @@ fn main() {
     let mut args = args();
     args.next();
     let mut url = args.next().unwrap();
-    if !url.starts_with("gopher://") {
+    if !url.contains("://") {
         url = "gopher://".to_owned() + &url;
     }
     let mut url = url::Url::parse(&url).unwrap();
